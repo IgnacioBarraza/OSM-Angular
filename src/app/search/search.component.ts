@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { icon, Marker } from "leaflet";
 import * as L from 'leaflet';
 import { Router } from '@angular/router';
-//import {  } from "@angular/";
+import { CrudService } from '../shared/crud.service';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +17,8 @@ export class SearchComponent implements OnInit {
   resultsName: any[] = [];
   query: string;
   map: any;
-  selectedPlace: any;
+  selectedPlace: string;
+  public crudApi: CrudService;
 
   places = [
     { id: "1", name: "Museos en Iquique" },
@@ -79,12 +80,16 @@ export class SearchComponent implements OnInit {
           let name: any[] = dataArray[i].display_name.split(",");
           // console.log(name);
           this.resultsName[i] = name[0]
-          // console.log(this.resultsName[i]);
+          console.log(this.resultsName[i]);
         }
       });
   }
 
   crudView() {
-    this.router.navigate(['crud'])
+    this.router.navigate(['view'])
+  }
+
+  addPlaceData() {
+    this.crudApi.addPlace(this.resultsName[0].value)
   }
 }

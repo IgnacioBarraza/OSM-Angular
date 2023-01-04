@@ -5,11 +5,18 @@ import { AngularFireDatabase, AngularFireList, AngularFireObject } from "@angula
 @Injectable({
   providedIn: 'root'
 })
+
 export class CrudService {
   placesRef: AngularFireList<any>;
   placeRef: AngularFireObject<any>;
 
   constructor(private db: AngularFireDatabase) { }
+
+  addPlace(place: Place) {
+    this.placesRef.push({
+      name: place.placeName
+    })
+  }
 
   getPlace(id: string) {
     this.placeRef = this.db.object('places-list' + id);

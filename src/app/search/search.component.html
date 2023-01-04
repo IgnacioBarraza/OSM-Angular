@@ -4,7 +4,8 @@
             <div class="form-group">
                 <label for="locationSelector" class="inputState visually-hidden">Selecciona un lugar:</label>
                 <select class="form-select form-select-lg mb-3" id="locationSelector" required
-                    (ngModelChange)="search()" [(ngModel)]="selectedPlace" aria-describedby="select-help">
+                    (ngModelChange)="search()" [(ngModel)]="selectedPlace" aria-describedby="select-help"
+                    name="selectedPlace">
                     <option *ngFor="let place of places" [value]="place.id">{{ place.name }}</option>
                 </select>
                 <small id="select-help" class="form-text text-muted">Campo obligatorio.</small>

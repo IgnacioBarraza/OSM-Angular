@@ -13,8 +13,6 @@ import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "../environments/environment";
 import { CrudviewComponent } from './crudview/crudview.component';
-import { AddPlaceComponent } from './add-place/add-place.component';
-import { DeletePlaceComponent } from './delete-place/delete-place.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +20,6 @@ import { DeletePlaceComponent } from './delete-place/delete-place.component';
     SearchComponent,
     PlaceListComponent,
     CrudviewComponent,
-    AddPlaceComponent,
-    DeletePlaceComponent
   ],
   imports: [
     BrowserModule,
