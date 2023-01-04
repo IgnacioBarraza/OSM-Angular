@@ -1,1 +1,13 @@
-<p>search works!</p>
+<form action="">
+    <div class="form-group">
+        <label for="locationSelector" class="inputState">Selecciona un lugar:</label>
+        <select class="form-control" id="locationSelector" required (ngModelChange)="search()">
+            <option *ngFor="let place of places" [value]="place.id">{{ place.name }}</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="search()">Buscar</button>
+</form>
+
+<div>
+    <div id="map"></div>
+</div>
