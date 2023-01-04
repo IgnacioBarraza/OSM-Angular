@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchComponent } from './search.component';
+import { DeletePlaceComponent } from './delete-place.component';
 
-describe('SearchComponent', () => {
-  let component: SearchComponent;
-  let fixture: ComponentFixture<SearchComponent>;
+describe('DeletePlaceComponent', () => {
+  let component: DeletePlaceComponent;
+  let fixture: ComponentFixture<DeletePlaceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
+      declarations: [ DeletePlaceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SearchComponent);
+    fixture = TestBed.createComponent(DeletePlaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

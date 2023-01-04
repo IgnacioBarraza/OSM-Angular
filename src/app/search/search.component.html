@@ -1,13 +1,23 @@
-<form action="">
-    <div class="form-group">
-        <label for="locationSelector" class="inputState">Selecciona un lugar:</label>
-        <select class="form-control" id="locationSelector" required (ngModelChange)="search()">
-            <option *ngFor="let place of places" [value]="place.id">{{ place.name }}</option>
-        </select>
-    </div>
-    <button type="button" class="btn btn-primary" (click)="search()">Buscar</button>
-</form>
+<div class="row">
+    <div class="col-6 my-auto mx-auto">
+        <form>
+            <div class="form-group">
+                <label for="locationSelector" class="inputState visually-hidden">Selecciona un lugar:</label>
+                <select class="form-select form-select-lg mb-3" id="locationSelector" required
+                    (ngModelChange)="search()" [(ngModel)]="selectedPlace" aria-describedby="select-help">
+                    <option *ngFor="let place of places" [value]="place.id">{{ place.name }}</option>
+                </select>
+                <small id="select-help" class="form-text text-muted">Campo obligatorio.</small>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="search()">Buscar</button>
+        </form>
 
-<div>
-    <div id="map"></div>
+        <div>
+            <div id="map"></div>
+        </div>
+    </div>
+    <div class="col-lg-4 my-auto mx-auto">
+        <button (click)="crudView()" class="btn btn-primary">Lista de Favoritos</button>
+        <app-place-list [resultsName]="resultsName"></app-place-list>
+    </div>
 </div>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { icon, Marker } from "leaflet";
 import * as L from 'leaflet';
-
+import { Router } from '@angular/router';
+//import {  } from "@angular/";
 
 @Component({
   selector: 'app-search',
@@ -12,19 +13,21 @@ import * as L from 'leaflet';
 
 
 export class SearchComponent implements OnInit {
-  results: any[] = [];
+
+  resultsName: any[] = [];
   query: string;
   map: any;
+  selectedPlace: any;
+
   places = [
     { id: "1", name: "Museos en Iquique" },
     { id: "2", name: "Bancos en Iquique" },
     { id: "3", name: "Playas en Iquique" },
     { id: "4", name: "Restaurantes en Iquique" },
     { id: "5", name: "Hoteles en Iquique" },
-    { id: "6", name: "Supermercados en Iquique" },
-    { id: "7", name: "Restaurantes en Iquique" },
+    { id: "6", name: "Supermercados en Iquique" }
   ]
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.map = L.map('map').setView([-33.4377756, -70.6504502], 4);
@@ -70,8 +73,18 @@ export class SearchComponent implements OnInit {
         // Carga un marcador por cada posición del array, genera una descripción, pero esta no se muestra de inmediato
         for (let i = 1; i < dataArray.length; i++) {
           L.marker([dataArray[i].lat, dataArray[i].lon]).addTo(this.map).bindPopup(`<b>${selectedLocation && selectedLocation.name}</b><br>${dataArray[i].display_name}`)
+        }
 
+        for (let i = 0; i < dataArray.length; i++) {
+          let name: any[] = dataArray[i].display_name.split(",");
+          // console.log(name);
+          this.resultsName[i] = name[0]
+          // console.log(this.resultsName[i]);
         }
       });
+  }
+
+  crudView() {
+    this.router.navigate(['crud'])
   }
 }

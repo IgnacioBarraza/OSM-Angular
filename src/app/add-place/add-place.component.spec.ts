@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrudviewComponent } from './crudview.component';
+import { AddPlaceComponent } from './add-place.component';
 
-describe('CrudviewComponent', () => {
-  let component: CrudviewComponent;
-  let fixture: ComponentFixture<CrudviewComponent>;
+describe('AddPlaceComponent', () => {
+  let component: AddPlaceComponent;
+  let fixture: ComponentFixture<AddPlaceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrudviewComponent ]
+      declarations: [ AddPlaceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CrudviewComponent);
+    fixture = TestBed.createComponent(AddPlaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
