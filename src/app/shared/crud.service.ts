@@ -13,9 +13,11 @@ export class CrudService {
   constructor(private db: AngularFireDatabase) { }
 
   addPlace(place: Place) {
-    this.placesRef.push({
-      name: place.placeName
-    })
+    if (this.placesRef && this.placesRef.push) {
+      this.placesRef.push({
+        name: place.placeName
+      })
+    }
   }
 
   getPlace(id: string) {

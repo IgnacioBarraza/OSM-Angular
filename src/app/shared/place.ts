@@ -1,4 +1,4 @@
 export interface Place {
-    $key: string;
+    $key: string
     placeName: string;
 }

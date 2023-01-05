@@ -12,32 +12,27 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr
-          *ngFor="
+        <tr *ngFor="
             let place of place
               | paginate: { itemsPerPage: 8, currentPage: p };
             let i = index
-          "
-        >
-          <th scope="row">{{ student.$key }}</th>
-          <td>{{ student.firstName }} {{ student.lastName }}</td>
-          <td>{{ student.email }}</td>
-          <td>{{ student.mobileNumber }}</td>
+          ">
+          <td>{{ place.placeName }}</td>
           <td class="text-center action-block">
-            <span
-              class="mr-2 btn btn-outline-primary btn-sm"
-              routerLink="/edit-student/{{ student.$key }}"
-              >Edit</span
-            >
-            <span
-              class="btn btn-outline-danger btn-sm"
-              (click)="deleteStudent(student)"
-              >Delete</span
-            >
+            <span class="btn btn-outline-danger btn-sm" (click)="deletePlace(place)">Delete</span>
           </td>
-        </tr> -->
+        </tr>
+        <tr *ngFor="
+        let place of places
+          | async 
+      ">
+          <td>{{ place.name}}</td>
+          <td class="text-center action-block">
+            <span class="btn btn-outline-danger btn-sm" (click)="deletePlace(place)">Delete</span>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
-  <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+  <button (click)="goMap()" class="btn btn-primary">Volver al mapa</button>
 </div>

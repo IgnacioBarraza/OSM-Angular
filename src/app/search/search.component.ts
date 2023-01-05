@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   resultsName: any[] = [];
   query: string;
   map: any;
-  selectedPlace: string;
+  selectedPlace: any;
   public crudApi: CrudService;
 
   places = [
@@ -36,6 +36,8 @@ export class SearchComponent implements OnInit {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
   }
+
+
 
   search() {
     const selectedLocationId = (document.getElementById('locationSelector') as HTMLSelectElement).value;
@@ -89,7 +91,4 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['view'])
   }
 
-  addPlaceData() {
-    this.crudApi.addPlace(this.resultsName[0].value)
-  }
 }
